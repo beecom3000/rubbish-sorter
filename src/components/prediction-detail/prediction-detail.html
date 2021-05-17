@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-5">
+        <span>${prediction.className}</span>
+    </div>
+    <div class="col-sm-7">
+        <div class="progress">
+            <div class="progress-bar"
+                 role="progressbar"
+                 aria-valuenow="${prediction.value}"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style.bind="valueStyle">
+                ${prediction.value} %
+            </div>
+        </div>
+    </div>
+</div>

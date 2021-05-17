@@ -1,0 +1,55 @@
+<div class="jumbotron">
+    <h1 class="display-3">Let's train the model</h1>
+    <div class="row">
+        <div class="col-md-5">
+            <div id="train-cam-container" ref="trainCamContainer" class="p-3"></div>
+        </div>
+        <div class="col-md-7">
+            <div class="card" style="width: 28rem;">
+                <div class="card-body" repeat.for="className of classNames">
+                    <input type="radio"
+                           id="className-${$index}"
+                           name="className" value.bind="$index"
+                           change.delegate="selectedClassChange($event)"
+                           checked.bind="selectedClassIndex">
+                    <label for="className-${$index}">${className}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <span class="font-weight-bold">Label: &nbsp;&nbsp;&nbsp;</span>
+        <div class="custom-control custom-switch">
+            ${selectedClassName}
+        </div>
+    </div>
+    <p>
+        <button class="btn btn-lg btn-success" type="button"
+                disabled.bind="isNaN(selectedClassIndex)"
+                click.trigger="train()">
+            Train
+        </button>
+    </p>
+</div>
+
+<div>
+    <div class="row">
+        <h5 class="align-content-center"> </h5>
+    </div>
+    <div class="row">
+        <div class="col col-md-4">
+
+        </div>
+        <div class="col col-md-8">
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+    <div class="row">
+
+    </div>
+</div>

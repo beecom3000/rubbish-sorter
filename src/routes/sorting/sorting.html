@@ -1,0 +1,92 @@
+<import from="../../components/prediction-detail/prediction-detail"></import>
+
+<header class="jumbotron my-4">
+    <h1 class="display-3">Let's Sort the Rubbish</h1>
+    <p class="lead">
+        This project aims to help sort the rubbish and save the environment.
+    </p>
+    <div class="row">
+        <span class="font-weight-bold">Webcam: &nbsp;&nbsp;&nbsp;</span>
+        <div class="custom-control custom-switch">
+            <input id="sorting-switch"
+                   type="checkbox"
+                   class="custom-control-input"
+                   change.delegate="onSortingChange($event)">
+            <label class="custom-control-label" for="sorting-switch">${sortingStatus}</label>
+        </div>
+    </div>
+    <div class="row" show.bind="webcamShow" >
+        <span class="font-weight-bold">Flip: &nbsp;&nbsp;&nbsp;</span>
+        <div class="custom-control custom-switch">
+            <input id="flip-webcam"
+                   type="checkbox"
+                   class="custom-control-input"
+                   change.delegate="onFlip($event)">
+            <label class="custom-control-label" for="flip-webcam">${flipWebcam ? 'Yes' : 'No'}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div id="webcam-container" ref="webcamContainer" class="p-3"></div>
+        </div>
+        <div class="col-md-7">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body" id="label-container" ref="labelContainer">
+                    <h5 class="card-title">Prediction</h5>
+                    <prediction-detail
+                            class="col-md-3 col-sm-6"
+                            repeat.for="prediction of predictions"
+                            prediction.bind>
+                    </prediction-detail>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><a class="btn btn-lg btn-success" href="#" role="button" click.trigger="openCloseBin()">${binStatus}</a></p>
+</header>
+
+<!--<div class="jumbotron">-->
+<!--    <h1 class="display-3">Sorting Rubbish</h1>-->
+<!--    <div class="row">-->
+<!--        <span class="font-weight-bold">Webcam: &nbsp;&nbsp;&nbsp;</span>-->
+<!--        <div class="custom-control custom-switch">-->
+<!--            <input id="sorting-switch"-->
+<!--                   type="checkbox"-->
+<!--                   class="custom-control-input"-->
+<!--                   change.delegate="onSortingChange($event)">-->
+<!--            <label class="custom-control-label" for="sorting-switch">${sortingStatus}</label>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row" show.bind="sortingStatus === 'On'" >-->
+<!--        <span class="font-weight-bold">Flip: &nbsp;&nbsp;&nbsp;</span>-->
+<!--        <div class="custom-control custom-switch">-->
+<!--            <input id="flip-webcam"-->
+<!--                   type="checkbox"-->
+<!--                   class="custom-control-input"-->
+<!--                   change.delegate="onFlip($event)">-->
+<!--            <label class="custom-control-label" for="flip-webcam">${flipWebcam ? 'Yes' : 'No'}</label>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-5">-->
+<!--            <div id="webcam-container" ref="webcamContainer" class="p-3"></div>-->
+<!--        </div>-->
+<!--        <div class="col-md-7">-->
+<!--            <div class="card" style="width: 20rem;">-->
+<!--                <div class="card-body" id="label-container" ref="labelContainer">-->
+<!--                    <h5 class="card-title">Prediction</h5>-->
+<!--                    <prediction-detail-->
+<!--                            class="col-md-3 col-sm-6"-->
+<!--                            repeat.for="prediction of predictions"-->
+<!--                            prediction.bind>-->
+<!--                    </prediction-detail>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <p><a class="btn btn-lg btn-success" href="#" role="button" click.trigger="openCloseBin()">${binStatus}</a></p>-->
+<!--</div>-->
+
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
